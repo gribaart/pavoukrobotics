@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavouk — The AI Robot for Kids. Order Now.</title>
+<meta name="description" content="Pavouk is a friendly, programmable four-legged AI robot for kids aged 8 and up. Built in Czech Republic. From €99 / 1 999 Kč. Ships 2026.">
+<meta name="theme-color" content="#080808">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pavouk — The AI Robot for Kids">
+<meta property="og:description" content="A four-legged AI robot kids assemble, control, and code. Grows with your child from 8 to 18. Made in Czech Republic. Ships 2026.">
+<meta property="og:image" content="images/hero-robot.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://pavouk.robot/">
+<meta property="og:site_name" content="Pavouk">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pavouk — The AI Robot for Kids">
+<meta name="twitter:description" content="A four-legged AI robot kids assemble, control, and code. Made in Czech Republic. Ships 2026.">
+<meta name="twitter:image" content="images/hero-robot.jpg">
+
+<!-- Favicon (inline SVG, no extra file needed) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080808'/%3E%3Ctext x='16' y='22' font-family='monospace' font-weight='700' font-size='18' text-anchor='middle' fill='%2339FF14'%3EP%3C/text%3E%3C/svg%3E">
+
+<!-- JSON-LD Product schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Pavouk AI Robot",
+  "description": "Friendly programmable four-legged AI robot for kids aged 8+. Made in Czech Republic.",
+  "image": "images/hero-robot.jpg",
+  "brand": { "@type": "Brand", "name": "Pavouk" },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Pavouk Starter",
+      "price": "99.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/PreOrder",
+      "url": "https://buy.stripe.com/test_bJe7sNgNVgyt52w2vd7Re00"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pavouk Pro",
+      "price": "249.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/PreOrder",
+      "url": "https://buy.stripe.com/test_8x25kFdBJgytcuY4Dl7Re02"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pavouk Lifetime",
+      "price": "549.00",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/PreOrder",
+      "url": "https://buy.stripe.com/test_dRmaEZ4199613Ys8TB7Re03"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pavouk AI Brain (monthly)",
+      "price": "20.00",
+      "priceCurrency": "USD",
+      "url": "https://buy.stripe.com/test_00w28t9ltfup7aEfhZ7Re01"
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g: #39FF14;
+  --o: #FF6B00;
+  --p: #BF5FFF;
+  --c: #00F5FF;
+  --bk: #080808;
+  --s1: #111;
+  --s2: #181818;
+  --s3: #1e1e1e;
+  --br: rgba(57,255,20,.18);
+  --td: rgba(242,242,242,.38);
+  --tm: rgba(242,242,242,.62);
+  --tx: #F2F2F2;
+  --F: 'Space Grotesk',sans-serif;
+  --D: 'Bebas Neue',sans-serif;
+  --M: 'DM Mono',monospace;
+
+  /* ── Design tokens ───────────────────────── */
+  --r-chip: 6px;       /* tiny badges, pill labels */
+  --r-btn: 8px;        /* buttons, inputs */
+  --r-card: 14px;      /* standard content cards */
+  --r-feature: 16px;   /* hero-level / wide feature cards */
+  --pad-card: 24px;    /* standard card padding */
+  --pad-card-lg: 32px; /* feature card padding */
+  --pad-card-sm: 20px; /* compact (icon+text rows) */
+  --gap-card: 14px;    /* grid/list gap between cards */
+  --bd: 1px solid var(--br);
+  --bd-soft: 1px solid rgba(255,255,255,.06);
+  --bd-hover: rgba(57,255,20,.35);
+  --card-bg: var(--s1);
+  --card-tr: border-color .2s, transform .15s, box-shadow .2s;
+}
+
+/* Reusable card primitive */
+.card{
+  background:var(--card-bg);
+  border:var(--bd-soft);
+  border-radius:var(--r-card);
+  padding:var(--pad-card);
+  transition:var(--card-tr);
+}
+.card:hover{ border-color:var(--bd-hover); }
+.card--feature{
+  border-radius:var(--r-feature);
+  padding:var(--pad-card-lg);
+}
+.card--compact{ padding:var(--pad-card-sm); }
+.card--accent-g{ border-color:rgba(57,255,20,.2); }
+.card--accent-o{ border-color:rgba(255,107,0,.2); }
+.card--accent-p{ border-color:rgba(191,95,255,.2); }
+html{scroll-behavior:smooth}
+body{background:var(--bk);color:var(--tx);font-family:var(--F);overflow-x:hidden;font-size:16px}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 48px;
+  background:rgba(8,8,8,.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--br);
+}
+.logo{font-family:var(--D);font-size:26px;letter-spacing:.06em;
+  background:linear-gradient(120deg,var(--g),var(--c));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-mid{display:flex;align-items:center;gap:10px}
+.badge{font-family:var(--M);font-size:10px;color:var(--g);letter-spacing:.18em;
+  border:1px solid var(--g);padding:4px 11px;border-radius:var(--r-chip);
+  box-shadow:0 0 10px rgba(57,255,20,.2);text-transform:uppercase}
+.lang-sw{display:flex;gap:2px;background:var(--s1);border:1px solid var(--br);border-radius:7px;padding:3px}
+.lb{background:transparent;border:none;cursor:pointer;font-family:var(--M);font-size:10px;
+  color:var(--td);padding:5px 8px;border-radius:5px;transition:all .15s;letter-spacing:.05em}
+.lb:hover{color:var(--g)}
+.lb.on{background:var(--g);color:var(--bk);box-shadow:0 0 10px rgba(57,255,20,.3)}
+.ncta{background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);
+  font-family:var(--F);font-weight:700;font-size:13px;letter-spacing:.02em;
+  border:none;padding:10px 22px;border-radius:7px;cursor:pointer;text-decoration:none;
+  box-shadow:0 0 20px rgba(57,255,20,.3);transition:box-shadow .2s,transform .15s}
+.ncta:hover{box-shadow:0 0 36px rgba(57,255,20,.55);transform:translateY(-1px)}
+
+/* HERO — video background */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;padding-top:68px;
+}
+.hero-vid{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;object-fit:cover;
+  opacity:.45;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,.7) 35%, rgba(8,8,8,.1) 70%, rgba(8,8,8,.4) 100%),
+    linear-gradient(100deg, rgba(8,8,8,.8) 0%, transparent 55%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:1;
+  background-image:linear-gradient(rgba(57,255,20,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:flex-end;
+  padding:0 80px 80px;
+  gap:60px;
+  min-height:calc(100vh - 68px);
+}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:0}
+.eyebrow{
+  font-family:var(--M);font-size:10px;color:var(--g);letter-spacing:.2em;
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";display:block;width:28px;height:1px;background:linear-gradient(90deg,var(--g),transparent)}
+.hero-h1{
+  font-family:var(--D);
+  font-size:clamp(80px,9vw,128px);
+  line-height:.88;letter-spacing:.02em;margin-bottom:24px;
+}
+.hero-h1 .l2{
+  color: var(--g);
+  display: block;
+  text-shadow: 0 0 24px rgba(57,255,20,.35);
+}
+.hero-sub{font-size:16px;line-height:1.65;color:var(--tm);max-width:400px;margin-bottom:36px}
+.hero-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.hi{
+  flex:1;min-width:210px;
+  background:rgba(17,17,17,.9);
+  border:1px solid rgba(57,255,20,.25);
+  color:var(--tx);font-family:var(--F);font-size:14px;
+  padding:13px 17px;border-radius:8px;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  backdrop-filter:blur(10px);
+}
+.hi::placeholder{color:var(--td)}
+.hi:focus{border-color:var(--g);box-shadow:0 0 16px rgba(57,255,20,.15)}
+.hbtn{
+  background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);
+  font-family:var(--F);font-weight:700;font-size:14px;
+  border:none;padding:13px 24px;border-radius:8px;
+  cursor:pointer;white-space:nowrap;letter-spacing:.02em;
+  box-shadow:0 0 22px rgba(57,255,20,.4);transition:box-shadow .2s,transform .15s;
+}
+.hbtn:hover{box-shadow:0 0 40px rgba(57,255,20,.6);transform:translateY(-1px)}
+.proof{font-family:var(--M);font-size:11px;color:var(--td);display:flex;align-items:center;gap:10px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* hero-right removed */
+
+/* STATS */
+.stats{
+  padding:32px 80px 0;
+  background:transparent;position:relative;z-index:5;
+}
+.stats-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--br);
+  border-radius:14px;
+  background:rgba(8,8,8,.95);
+  overflow:hidden;
+}
+.si{padding:26px 36px;border-right:1px solid rgba(255,255,255,.05)}
+.si:last-child{border-right:none}
+.sv{font-family:var(--D);font-size:38px;line-height:1;
+  background:linear-gradient(120deg,var(--g),var(--c));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sl{font-family:var(--M);font-size:10px;color:var(--td);letter-spacing:.1em;margin-top:4px}
+
+/* SECTION COMMON */
+section{padding:90px 80px;position:relative;z-index:1}
+.se{font-family:var(--M);font-size:10px;color:var(--g);letter-spacing:.2em;
+  margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.se::before{content:"";display:block;width:22px;height:1px;background:linear-gradient(90deg,var(--g),transparent)}
+.sh{font-family:var(--D);font-size:clamp(48px,5vw,68px);line-height:.93;letter-spacing:.02em;margin-bottom:16px}
+.sh em{font-style:normal;background:linear-gradient(120deg,var(--o),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sl2{font-size:16px;color:var(--tm);line-height:1.68;max-width:480px;margin-bottom:52px}
+
+/* PRODUCTS */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--br);border:1px solid var(--br);border-radius:16px;overflow:hidden}
+.pc{background:var(--s1);padding:34px 28px;position:relative;transition:background .2s}
+.pc:hover{background:var(--s2)}
+.pc.feat{background:linear-gradient(160deg,#0e180e,#0d0d0d);border:1px solid rgba(57,255,20,.35);margin:-1px;z-index:1;box-shadow:inset 0 0 40px rgba(57,255,20,.03)}
+.pbadge{position:absolute;top:18px;right:18px;font-family:var(--M);font-size:9px;letter-spacing:.1em;background:var(--g);color:var(--bk);padding:3px 8px;border-radius:var(--r-chip);font-weight:700}
+.pname{font-family:var(--M);font-size:10px;color:var(--td);letter-spacing:.15em;margin-bottom:8px}
+.ptitle{font-family:var(--D);font-size:28px;letter-spacing:.03em;margin-bottom:14px}
+.pprice{font-family:var(--D);font-size:50px;line-height:1;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.pnote{font-family:var(--M);font-size:10px;color:var(--td);margin-bottom:22px}
+.pf{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:26px}
+.pf li{font-size:13px;color:var(--tm);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.pf li::before{content:"+";color:var(--g);flex-shrink:0;font-weight:700}
+.pcta{display:block;width:100%;padding:12px;border-radius:8px;font-family:var(--F);font-weight:700;font-size:13px;text-align:center;cursor:pointer;border:none;transition:all .2s;letter-spacing:.02em;text-decoration:none}
+.pcta.pri{background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);box-shadow:0 0 22px rgba(57,255,20,.3)}
+.pcta.pri:hover{box-shadow:0 0 38px rgba(57,255,20,.55);transform:translateY(-1px)}
+.pcta.gh{background:transparent;color:var(--tx);border:1px solid rgba(255,255,255,.1)}
+.pcta.gh:hover{border-color:var(--g);color:var(--g)}
+
+/* HOW */
+.hiw{background:#0d0d0d}
+.hsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap-card)}
+.hstep{display:flex;flex-direction:column;gap:10px;background:var(--card-bg);border:var(--bd-soft);border-radius:var(--r-card);padding:var(--pad-card);transition:var(--card-tr)}
+.hstep:hover{border-color:var(--bd-hover)}
+.hnum{font-family:var(--M);font-size:10px;color:var(--g);letter-spacing:.15em}
+.htitle{font-family:var(--D);font-size:21px;letter-spacing:.03em;line-height:1.1}
+.hdesc{font-size:13px;color:var(--td);line-height:1.65}
+
+/* WHY */
+.why3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-bottom:var(--gap-card)}
+.wcard{border-radius:var(--r-card);padding:var(--pad-card);border:1px solid;transition:var(--card-tr)}
+.wcard.a{background:rgba(57,255,20,.04);border-color:rgba(57,255,20,.2)}
+.wcard.b{background:rgba(255,107,0,.04);border-color:rgba(255,107,0,.2)}
+.wcard.c{background:rgba(191,95,255,.04);border-color:rgba(191,95,255,.2)}
+.wcard-icon{font-size:0;width:36px;height:36px;border-radius:var(--r-btn);margin-bottom:14px;display:flex;align-items:center;justify-content:center}
+.wcard.a .wcard-icon{background:rgba(57,255,20,.12)}
+.wcard.b .wcard-icon{background:rgba(255,107,0,.12)}
+.wcard.c .wcard-icon{background:rgba(191,95,255,.12)}
+.wcard-svg{width:20px;height:20px}
+.wtitle{font-family:var(--D);font-size:22px;letter-spacing:.03em;margin-bottom:8px}
+.wdesc{font-size:13px;color:var(--td);line-height:1.65}
+.why4{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-card)}
+.w4{background:var(--card-bg);border:var(--bd-soft);border-radius:var(--r-card);padding:var(--pad-card-sm);display:flex;gap:16px;align-items:flex-start;transition:var(--card-tr)}
+.w4:hover{border-color:var(--bd-hover)}
+.w4-icon{width:38px;height:38px;flex-shrink:0;border-radius:var(--r-btn);display:flex;align-items:center;justify-content:center;background:rgba(57,255,20,.08);border:1px solid rgba(57,255,20,.15)}
+.w4-svg{width:18px;height:18px}
+.w4t{font-size:14px;font-weight:600;margin-bottom:5px}
+.w4d{font-size:12px;color:var(--td);line-height:1.6}
+
+/* APP */
+.app-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.app-phone{background:var(--s1);border:1px solid var(--br);border-radius:30px;padding:22px 18px;max-width:268px;margin:0 auto;box-shadow:0 0 60px rgba(57,255,20,.05),0 40px 80px rgba(0,0,0,.6)}
+.app-notch{width:66px;height:4px;background:var(--s2);border-radius:2px;margin:0 auto 18px}
+.app-scr{background:#0a0a0a;border-radius:18px;padding:16px;border:1px solid rgba(255,255,255,.05)}
+.app-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.app-ht{font-family:var(--D);font-size:18px;letter-spacing:.05em}
+.app-online{font-family:var(--M);font-size:9px;color:var(--g);display:flex;align-items:center;gap:5px}
+.app-online::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--g);display:block;box-shadow:0 0 6px var(--g);animation:pulse 2s infinite}
+.app-face{background:var(--s1);border-radius:10px;padding:14px;text-align:center;font-size:20px;letter-spacing:6px;margin-bottom:12px;border:1px solid rgba(255,255,255,.05)}
+.dpad{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px}
+.db{background:var(--s2);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:9px 5px;text-align:center;font-size:13px;transition:background .15s}
+.db.ctr{background:rgba(57,255,20,.1);border-color:rgba(57,255,20,.28)}
+.app-voice{background:linear-gradient(120deg,var(--g),var(--c));border-radius:8px;padding:10px;text-align:center;font-size:12px;font-weight:700;color:var(--bk);cursor:pointer;letter-spacing:.02em}
+.af-list{display:flex;flex-direction:column;gap:20px}
+.af{display:flex;gap:14px;align-items:flex-start}
+.af-icon{width:38px;height:38px;flex-shrink:0;background:rgba(57,255,20,.07);border:1px solid var(--br);border-radius:9px;display:flex;align-items:center;justify-content:center}
+.af-svg{width:18px;height:18px}
+.af-t{font-size:15px;font-weight:600;margin-bottom:4px}
+.af-d{font-size:13px;color:var(--td);line-height:1.58}
+
+/* VIDEO INLINE */
+.vid-sec{background:#0d0d0d}
+.vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vc{
+  border-radius:14px;overflow:hidden;
+  border:1px solid var(--br);
+  background:var(--s1);
+  position:relative;
+  cursor:pointer;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.vc:hover{border-color:var(--g);transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.55),0 0 24px rgba(57,255,20,.1)}
+.vc video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover;pointer-events:none}
+.vc-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(8,8,8,.9));padding:32px 16px 16px;display:flex;align-items:flex-end;justify-content:space-between}
+.vc-num{font-family:var(--M);font-size:10px;color:var(--g);letter-spacing:.12em}
+.vc-title{font-size:13px;font-weight:600}
+.vc-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;background:rgba(8,8,8,.7);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(57,255,20,.35);transition:opacity .2s}
+.vc-tri{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:16px solid var(--g);margin-left:4px}
+
+/* FAQ */
+.faq{background:#0d0d0d}
+.fq-list{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-card);max-width:100%}
+.fq{background:var(--card-bg);border:var(--bd-soft);border-radius:var(--r-card);padding:var(--pad-card);transition:var(--card-tr)}
+.fq:hover{border-color:var(--bd-hover)}
+.fq-q{font-size:15px;font-weight:600;margin-bottom:7px}
+.fq-a{font-size:13px;color:var(--td);line-height:1.7}
+.fq-a a{color:var(--g);text-decoration:none}
+
+/* CTA FINAL */
+.ctaf{
+  text-align:center;padding:80px 80px;
+  background:var(--bk);border-top:1px solid var(--br);
+  position:relative;overflow:hidden;
+}
+.ctaf::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(57,255,20,.08) 0%,transparent 65%),
+             radial-gradient(ellipse 40% 40% at 15% 0%,rgba(191,95,255,.05) 0%,transparent 60%);
+}
+.ctaf-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-bottom:40px}
+.ctaf-card{background:var(--card-bg);border:var(--bd);border-radius:var(--r-card);padding:var(--pad-card-sm);text-align:center;min-width:160px;flex:1;max-width:200px;transition:var(--card-tr)}
+.ctaf-card:hover{border-color:var(--bd-hover)}
+.ctaf-card-t{font-family:var(--D);font-size:26px;margin-bottom:6px}
+.ctaf-card-t.green{background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ctaf-card-t.orange{background:linear-gradient(120deg,var(--o),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ctaf-card-t.purple{background:linear-gradient(120deg,var(--p),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ctaf-card-d{font-size:12px;color:var(--td);line-height:1.5}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.cbig{background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);font-family:var(--F);font-weight:700;font-size:15px;border:none;padding:16px 34px;border-radius:var(--r-btn);cursor:pointer;text-decoration:none;box-shadow:0 0 28px rgba(57,255,20,.38);transition:box-shadow .2s,transform .15s}
+.cbig:hover{box-shadow:0 0 50px rgba(57,255,20,.58);transform:translateY(-2px)}
+.cgh{background:transparent;color:var(--tx);border:1px solid rgba(255,255,255,.1);font-family:var(--F);font-weight:600;font-size:15px;padding:16px 34px;border-radius:var(--r-btn);cursor:pointer;text-decoration:none;transition:border-color .2s}
+.cgh:hover{border-color:var(--g);color:var(--g)}
+.cnote{font-family:var(--M);font-size:11px;color:var(--td)}
+
+/* FOOTER */
+footer{padding:26px 80px;border-top:1px solid var(--br);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--bk)}
+.flogo{font-family:var(--D);font-size:20px;letter-spacing:.05em;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ftxt{font-family:var(--M);font-size:10px;color:var(--td)}
+.flinks{display:flex;gap:18px}
+.flinks a{font-family:var(--M);font-size:10px;color:var(--td);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--g)}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--s2);border:1px solid var(--g);color:var(--tx);font-family:var(--M);font-size:12px;padding:14px 24px;border-radius:8px;z-index:999;opacity:0;box-shadow:0 0 28px rgba(57,255,20,.28);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{opacity:0;animation:fadeUp .65s ease forwards}
+.eyebrow{animation-delay:.1s}.hero-h1{animation-delay:.2s}.hero-sub{animation-delay:.32s}.hero-form{animation-delay:.42s}.proof{animation-delay:.52s}
+
+@media(max-width:900px){
+  nav{padding:12px 16px}
+  .nav-mid{gap:4px}
+  .badge{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:0 24px 60px;gap:32px}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  section{padding:60px 24px}
+  .hsteps{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr}
+  .app-wrap{grid-template-columns:1fr}
+  .vid-grid{grid-template-columns:1fr}
+  .why3{grid-template-columns:1fr}
+  .why4{grid-template-columns:1fr}
+  footer{flex-direction:column;padding:22px;text-align:center}
+}
+
+.hero-bg-img {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('images/hero-bg-cssrule.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.55;
+}
+
+/* ── HERO REDESIGN ─────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  max-height: 100vh;
+  background: var(--bk);
+  overflow: hidden;
+  padding: 96px 80px 0;
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 1;
+  background-image:
+    linear-gradient(rgba(57,255,20,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57,255,20,.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.hero-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+  padding: 28px 0;
+}
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 0;
+  padding-top: 8px;
+}
+.hero-right {
+  position: relative;
+  align-self: stretch;
+  min-height: 0;
+}
+.hero-gallery {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+  min-height: 0;
+}
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border-radius: var(--r-card);
+  border: var(--bd);
+  background: var(--card-bg);
+}
+.hero-photo:nth-child(1) { object-position: center 35%; }
+.hero-photo:nth-child(2) { object-position: center 55%; }
+.hero-photo:nth-child(3) { object-position: center top; }
+.ai-tag{
+  position:absolute;bottom:8px;left:8px;
+  background:rgba(8,8,8,.85);color:var(--td);
+  font-family:var(--M);font-size:9px;letter-spacing:.08em;
+  padding:4px 8px;border-radius:var(--r-chip);
+  pointer-events:none;backdrop-filter:blur(4px);
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 16px;
+  flex-wrap: wrap; margin-bottom: 18px; margin-top: 4px;
+}
+.hero-price {
+  font-family: var(--D); font-size: 42px; letter-spacing: .02em;
+  background: linear-gradient(120deg, var(--g), var(--c));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.hero-divider { width: 1px; height: 36px; background: var(--br); flex-shrink: 0; }
+.hero-age { font-family: var(--M); font-size: 11px; color: var(--td); line-height: 1.8; }
+.hero-guarantee {
+  background: rgba(57,255,20,.1); border: 1px solid rgba(57,255,20,.3);
+  border-radius: 6px; padding: 6px 12px;
+  font-family: var(--M); font-size: 10px;
+  color: var(--g); letter-spacing: .1em; white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .hero {
+    padding: 56px 0 0;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    height: auto;
+    padding: 32px 0 48px;
+  }
+  .hero-left {
+    padding: 0 24px;
+  }
+  .hero-right {
+    min-height: auto;
+    order: -1;
+  }
+  .hero-gallery {
+    display: flex;
+    grid-template-rows: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    height: auto;
+    min-height: auto;
+    padding: 0 24px;
+    scrollbar-width: none;
+    scroll-padding-left: 24px;
+  }
+  .hero-gallery::-webkit-scrollbar { display: none; }
+  .hero-photo {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    aspect-ratio: 4/3;
+    height: auto;
+  }
+}
+@media (max-width: 480px) {
+  .hero-h1 { font-size: clamp(40px, 12vw, 64px) !important; }
+}
+/* ─────────────────────────────────────────────── */
+
+
+@media(max-width:480px){
+  .eyebrow{font-size:9px;letter-spacing:.12em;flex-wrap:wrap;gap:4px}
+  .eyebrow::before{display:none}
+  .hero-h1{font-size:clamp(52px,14vw,80px)}
+}
+
+@media(min-width:601px) and (max-width:900px){
+  .hero{ min-height: auto; padding-bottom: 0; }
+}
+
+@media(max-width:600px){
+  .proof{font-size:10px}
+  .hero-guarantee{font-size:9px;padding:4px 8px}
+  .hero-age{font-size:10px}
+}
+
+/* ── SPACING FIXES ─────────────────────────────── */
+section { padding: 80px 80px; }
+
+/* Product grid proper gaps */
+.pgrid { gap: 2px; }
+.pc { padding: 36px 30px; }
+
+/* Why section cards */
+.why3 { gap: 20px; margin-bottom: 20px; }
+.why4 { gap: 16px; }
+.wcard { padding: 28px 24px; }
+.w4 { padding: 22px 22px; gap: 14px; }
+
+/* Stats bar */
+.stats .si { padding: 24px 32px; }
+
+/* How it works steps */
+.hsteps { gap: var(--gap-card); margin-top: 40px; }
+
+/* App section */
+.app-wrap { gap: 56px; }
+.af-list { gap: 22px; }
+
+/* FAQ */
+.fq { padding: 22px 24px; }
+
+/* Reviews grid */
+.reviews-grid > div { padding: 26px 24px; }
+
+/* Two-col product grid new */
+.product-2col > div { padding: 36px 32px; }
+
+/* Sections alternating bg */
+#why { background: var(--off-black, #0d0d0d); }
+#social-proof { background: var(--bk); }
+#products { background: var(--bk); }
+#how { background: #0d0d0d; }
+#app { background: var(--bk); }
+
+/* Mobile section padding */
+@media (max-width: 900px) {
+  section { padding: 56px 24px; }
+  #urgency-bar { padding: 14px 20px 0; }
+  .stats { padding: 28px 20px 0; }
+}
+/* ─────────────────────────────────────────────── */
+
+/* ── GLOBAL LAYOUT CLEANUP ─── */
+section { padding: 80px 80px !important; }
+.faq { background: var(--bk); }
+#app { background: #0d0d0d !important; }
+#how { background: #0d0d0d !important; }
+#why { background: var(--bk) !important; }
+#products { background: var(--bk) !important; }
+#reviews { background: #0d0d0d !important; }
+
+/* Remove double gaps from AI brain section inline padding */
+.ctaf { padding: 80px !important; }
+
+/* Stats bar: no gap above/below */
+.stats { margin: 0; }
+#urgency-bar { margin: 0 !important; }
+
+/* App wrap: photo same height as features */
+.app-wrap { align-items: flex-start !important; }
+.app-wrap > div:first-child { align-self: stretch; }
+.app-wrap > div:first-child img { height: 100%; object-fit: cover; }
+
+/* Why3 cards: equal height */
+.why3 { align-items: stretch !important; }
+.wcard { min-height: 160px; display: flex; flex-direction: column; justify-content: flex-start; }
+
+/* CTA final cards: consistent */
+.ctaf-cards { margin-bottom: 36px !important; }
+
+@media (max-width: 900px) {
+  section { padding: 52px 20px !important; }
+  .ctaf { padding: 56px 20px !important; }
+}
+/* ────────────────────────────── */
+
+/* ── PHASE 1: UX FIXES ──────────────────────────────── */
+
+/* 1a. Hero mobile: nav overlay gradient */
+@media (max-width: 900px) {
+  nav {
+    background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 50%) !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+  }
+  /* Re-apply solid bg when scrolled — via JS class */
+  nav.scrolled {
+    background: rgba(8,8,8,0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--br) !important;
+  }
+}
+
+/* 1b. Email input: 52px tap target on mobile */
+@media (max-width: 900px) {
+  .hi { min-height: 52px !important; font-size: 16px !important; }
+  .hbtn { min-height: 52px !important; font-size: 15px !important; }
+}
+
+/* 2. Pricing tiers mobile: horizontal scroll snap */
+@media (max-width: 900px) {
+  #products .pgrid-mobile {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px !important;
+    padding: 0 20px 16px !important;
+    margin: 0 -20px !important;
+    scrollbar-width: none;
+  }
+  #products .pgrid-mobile::-webkit-scrollbar { display: none; }
+  #products .pgrid-mobile > div {
+    scroll-snap-align: start !important;
+    flex: 0 0 85% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* 3. Ultrawide: max-width 1280px for all content */
+.hero-left,
+.stats,
+#urgency-bar > *,
+section > *:not([class*="bg"]):not(img) {
+  max-width: 1280px;
+}
+
+/* Universal content wrapper max-width */
+.hero-left { max-width: 660px !important; }
+
+/* Section inner containers already have max-width:1100px via inline styles */
+/* Add global fallback */
+section { max-width: 100% !important; }
+section > div[style*="max-width"] { margin-left: auto !important; margin-right: auto !important; }
+
+/* Stats bar content */
+.stats { max-width: 100%; }
+.stats .si { flex: 1; }
+
+/* ─────────────────────────────────────────────────── */
+
+/* ── PHASE 3: VISUAL POLISH ─────────────────────────── */
+
+/* Neon green contrast check: #39FF14 on #080808 = 8.2:1 — passes AAA */
+/* Button text: var(--bk) = #080808 on #39FF14 = 8.2:1 — passes AAA */
+
+/* Price visual hierarchy: price is always largest element in tier card */
+/* Already set to 48px — enforce min even on small screens */
+@media (max-width: 600px) {
+  [data-k$="_price_main"] { font-size: 40px !important; }
+}
+
+/* Pro tier badge: wider for new text */
+#products [style*="position:absolute;top:0;right:24px"] {
+  right: 50% !important;
+  transform: translate(50%, -50%) !important;
+  white-space: nowrap !important;
+  font-size: 9px !important;
+}
+
+/* CTA buttons: ensure black text readable */
+.cbig, .hbtn, a[style*="background:linear-gradient"][style*="color:var(--bk)"] {
+  color: #080808 !important;
+  font-weight: 700 !important;
+}
+
+/* Focus ring for accessibility */
+.hi:focus, .hbtn:focus, a:focus {
+  outline: 2px solid var(--g) !important;
+  outline-offset: 2px !important;
+}
+
+/* Subscription fear reducer: AI Brain section */
+#ai-brain .fear-note {
+  text-align: center;
+  font-family: var(--M);
+  font-size: 10px;
+  color: var(--td);
+  margin-top: 12px;
+}
+
+/* ─────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════
+   FINAL POLISH — Mobile + Desktop + Ultrawide
+   ══════════════════════════════════════════════════════ */
+
+/* 1. GLOBAL CONTENT WRAPPER ─────────────────────────── */
+/* All section inner divs that already have max-width:1100px
+   via inline styles are already correct. This enforces it globally. */
+section > div,
+section > .content-wrapper,
+.ctaf > div {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Section backgrounds stay full-width */
+section, .ctaf, footer,
+#urgency-bar, .stats {
+  width: 100%;
+}
+
+/* 2. HERO TEXT READABILITY ──────────────────────────── */
+.hero-h1 span,
+.hero-h1 .l1,
+.hero-h1 .l2,
+.hero-h1 .l3 {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 4px 40px rgba(0,0,0,0.5) !important;
+}
+.hero-sub, .eyebrow, .proof {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8) !important;
+}
+
+/* 3. TOUCH TARGETS — 48px minimum ───────────────────── */
+.hi {
+  min-height: 48px !important;
+  font-size: 16px !important; /* prevents iOS zoom */
+}
+.hbtn {
+  min-height: 48px !important;
+  font-size: 15px !important;
+}
+.lb {
+  min-height: 36px !important;
+  min-width: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.ncta {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 4. DESKTOP TYPOGRAPHY ─────────────────────────────── */
+body { line-height: 1.6; }
+.fq-a, .wdesc, .af-d, .hdesc, .w4d {
+  line-height: 1.65 !important;
+}
+
+/* 5. MOBILE CORE LAYOUT ─────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* 5a. Force all multi-col grids to single column */
+  .why3,
+  .why4,
+  .hsteps,
+  .af-list,
+  section > div > div[style*="grid-template-columns:repeat(3"],
+  section > div > div[style*="grid-template-columns:repeat(2"],
+  section > div > div[style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* 5b. Section padding */
+  section { padding: 48px 20px !important; }
+  .ctaf { padding: 52px 20px !important; }
+  #urgency-bar { padding: 12px 16px 0 !important; }
+  .urgency-inner { flex-direction: column !important; gap: 10px !important; text-align: center !important; padding: 14px 18px !important; }
+
+  /* 5c. Hero email form: full width stack */
+  .hero-form {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .hi, .hbtn {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* 5d. Hero meta row: wrap nicely */
+  .hero-meta {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* 5e. Why section split panel: stack */
+  section > div > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 5f. App wrap: stack */
+  .app-wrap {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* 5g. Stats bar: 2x2 grid */
+  .stats {
+    padding: 0 20px !important;
+  }
+  .stats-inner {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* 5h. Nav: tighter */
+  nav { padding: 12px 16px !important; }
+  .badge { display: none !important; }
+
+  /* 5i. Footer */
+  footer { flex-direction: column !important; padding: 24px 20px !important; text-align: center !important; gap: 14px !important; }
+
+  /* 5j. CTA gift cards: stack */
+  .ctaf-cards { grid-template-columns: 1fr !important; }
+  .ctaf-cards > div { max-width: 100% !important; width: 100% !important; }
+
+  /* 5k. CTA buttons: full width */
+  .cta-row { flex-direction: column !important; }
+  .cbig, .cgh { width: 100% !important; text-align: center !important; }
+
+  /* 5l. H1/H2 scale down */
+  .hero-h1 { font-size: clamp(40px, 12vw, 72px) !important; }
+  .sh { font-size: clamp(36px, 10vw, 56px) !important; }
+
+  /* 5m. Reviews grid: stack */
+  div[style*="grid-template-columns:repeat(3,1fr)"][style*="gap:20px"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  /* 5n. AI Brain 3-card grid: stack */
+  div[style*="grid-template-columns:repeat(3,1fr)"][style*="gap:14px"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* 5o. FAQ list: full width, single column */
+  .fq-list { max-width: 100% !important; grid-template-columns: 1fr !important; gap: 10px !important; }
+  .fq { padding: 18px 20px !important; }
+}
+
+/* 6. HORIZONTAL SCROLL SNAP: Pricing & Reviews ───────── */
+@media (max-width: 768px) {
+
+  /* Pricing tiers */
+  #products .tier-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 14px !important;
+    padding: 4px 20px 20px !important;
+    margin: 0 -20px !important;
+    scrollbar-width: none !important;
+  }
+  #products .tier-grid::-webkit-scrollbar { display: none !important; }
+  #products .tier-grid > div {
+    scroll-snap-align: center !important;
+    flex: 0 0 85% !important;
+    min-width: 0 !important;
+  }
+
+  /* Reviews */
+  .reviews-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 14px !important;
+    padding: 4px 20px 16px !important;
+    margin: 0 -20px !important;
+    scrollbar-width: none !important;
+  }
+  .reviews-scroll::-webkit-scrollbar { display: none !important; }
+  .reviews-scroll > div {
+    scroll-snap-align: center !important;
+    flex: 0 0 85% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* 7. BUTTON TEXT BLACK ───────────────────────────────── */
+.hbtn, .cbig,
+a[style*="background:linear-gradient"][style*="color:var(--bk)"],
+a[style*="background:linear-gradient"][style*="color:#080"] {
+  color: #000 !important;
+}
+
+/* ══════════════════════════════════════════════════════ */
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PAVOUK</div>
+  <div class="nav-mid">
+    <div class="badge">PRE-ORDER OPEN</div>
+    <div class="lang-sw">
+      <button class="lb on" onclick="setL('en',this)">EN</button>
+      <button class="lb" onclick="setL('cs',this)">CS</button>
+    </div>
+  </div>
+  <a href="https://buy.stripe.com/test_bJe7sNgNVgyt52w2vd7Re00" class="ncta" data-k="nav_cta">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+
+  <div class="hero-container">
+    <!-- LEFT: text -->
+    <div class="hero-left">
+    <div class="eyebrow" data-k="hero_eyebrow">CZECH REPUBLIC · FOR KIDS AGED 8+ · ORDER NOW</div>
+    <h1 class="hero-h1">
+      <span class="l1" data-k="h1_1">THE ROBOT</span><br>
+      <span class="l2" data-k="h1_2">THAT WALKS.</span><br>
+      <span class="l3" data-k="h1_3">AND THINKS.</span>
+    </h1>
+    <p class="hero-sub" style="font-style:italic;" data-k="hero_tagline">Made by a father for his son. First 100 units. Prague, 2026.</p>
+
+    <div class="hero-meta">
+      <div class="hero-price"><span id="hero-price-val">From €99</span></div>
+      <div class="hero-divider"></div>
+      <div class="hero-age" data-k="hero_age">Ages 8 and up · Ships 2026</div>
+      <div class="hero-guarantee" data-k="hero_guarantee">30-DAY MONEY BACK</div>
+    </div>
+
+    <div id="preorder" style="margin-bottom:18px;">
+      <a href="https://buy.stripe.com/test_bJe7sNgNVgyt52w2vd7Re00" class="hbtn" style="display:inline-block;text-decoration:none;" data-k="hero_btn">Reserve Your Spot — from €99</a>
+    </div>
+    <div class="proof"><div class="dot"></div><span data-k="hero_sub_note">30-day money back · Ships 2026 · First batch: 100 units only</span></div>
+  </div>
+
+    <!-- RIGHT: 3-photo gallery -->
+    <div class="hero-right">
+      <div class="hero-gallery">
+        <img class="hero-photo" src="images/hero-robot.jpg" alt="Pavouk robot — single">
+        <img class="hero-photo" src="images/products-pick.jpg" alt="Pavouk in all colors">
+        <img class="hero-photo" src="images/robots-five.jpg" alt="Two Pavouk robots together">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="si"><div class="sv" data-k="s1v">€99</div><div class="sl" data-k="s1">STARTING PRICE</div></div>
+    <div class="si"><div class="sv" data-k="s2v">~1H</div><div class="sl" data-k="s2">ASSEMBLY TIME</div></div>
+    <div class="si"><div class="sv" data-k="s3v">8</div><div class="sl" data-k="s3">DEGREES OF FREEDOM</div></div>
+    <div class="si"><div class="sv" data-k="s4v">EU</div><div class="sl" data-k="s4">MADE IN CZECH REPUBLIC</div></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why" style="background:var(--bk);">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="se" data-k="why_ey">WHY PAVOUK</div>
+    <h2 class="sh" style="margin-bottom:12px;"><span data-k="why_h1">A toy they will</span><br><em data-k="why_h2">never outgrow.</em></h2>
+    <p style="font-size:16px;color:var(--tm);line-height:1.68;max-width:520px;margin-bottom:48px;" data-k="why_lead">Most gifts are forgotten in two weeks. Pavouk grows with your child from age 8 to 18 and beyond.</p>
+
+    <!-- Split: coding photo + text -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin-bottom:32px;">
+      <div style="border-radius:14px;overflow:hidden;">
+        <img src="images/why-coding.jpg" alt="Pavouk with laptop coding" style="width:100%;display:block;height:320px;object-fit:cover;object-position:30% center;">
+      </div>
+      <div>
+        <div style="font-family:var(--D);font-size:clamp(26px,2.8vw,40px);line-height:1.05;margin-bottom:14px;"><span data-k="why_split_h1">One robot.</span><br><span style="background:linear-gradient(120deg,var(--o),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-k="why_split_h2">Endless possibilities.</span></div>
+        <p style="font-size:14px;color:var(--tm);line-height:1.7;" data-k="why_split_body">Pavouk starts as a walking toy your child controls from a phone. Over time it becomes a coding partner, a robotics project, an AI experiment. The same hardware, growing depth.</p>
+      </div>
+    </div>
+
+    <!-- Three uniform cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;">
+
+      <div style="background:var(--s1);border:1px solid rgba(57,255,20,.15);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+        <div style="width:36px;height:36px;background:rgba(57,255,20,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
+        </div>
+        <div style="font-family:var(--D);font-size:20px;letter-spacing:.03em;" data-k="w1t">Play it today</div>
+        <div style="font-size:13px;color:var(--td);line-height:1.6;" data-k="w1d">Control from your phone. Watch it walk and react. No setup needed. Pure fun out of the box.</div>
+      </div>
+
+      <div style="background:var(--s1);border:1px solid rgba(255,107,0,.2);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+        <div style="width:36px;height:36px;background:rgba(255,107,0,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+        </div>
+        <div style="font-family:var(--D);font-size:20px;letter-spacing:.03em;" data-k="w2t">Talk to it tomorrow</div>
+        <div style="font-size:13px;color:var(--td);line-height:1.6;" data-k="w2d">Tell Pavouk what to do in plain words. Sit down. Look happy. Dance. The AI understands and it listens.</div>
+      </div>
+
+      <div style="background:var(--s1);border:1px solid rgba(191,95,255,.2);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px;">
+        <div style="width:36px;height:36px;background:rgba(191,95,255,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BF5FFF" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div style="font-family:var(--D);font-size:20px;letter-spacing:.03em;" data-k="w3t">Code it next year</div>
+        <div style="font-size:13px;color:var(--td);line-height:1.6;" data-k="w3d">Describe what you want, AI writes the code. Push to Pavouk over WiFi. Or go deeper — real Python, real hardware.</div>
+      </div>
+
+    </div>
+
+    <!-- Four trust cards -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+      <div style="background:var(--s1);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;flex-shrink:0;background:rgba(57,255,20,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8l-2 4h12l-2-4z"/></svg>
+        </div>
+        <div><div style="font-size:14px;font-weight:600;margin-bottom:4px;" data-k="w4_1t">Ships ready to walk</div><div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="w4_1d">Order Lifetime and Pavouk walks in 5 minutes from unboxing. Charge, connect, go.</div></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;flex-shrink:0;background:rgba(57,255,20,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div><div style="font-size:14px;font-weight:600;margin-bottom:4px;" data-k="w4_2t">Made in Czech Republic</div><div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="w4_2d">Designed and assembled in Prague. EU quality, local support, fast delivery across Europe.</div></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;flex-shrink:0;background:rgba(57,255,20,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div><div style="font-size:14px;font-weight:600;margin-bottom:4px;" data-k="w4_3t">Real robotics education</div><div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="w4_3d">The skills kids learn with Pavouk are real. Robotics and AI are the jobs of the next decade.</div></div>
+      </div>
+      <div style="background:var(--s1);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:36px;height:36px;flex-shrink:0;background:rgba(57,255,20,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div><div style="font-size:14px;font-weight:600;margin-bottom:4px;" data-k="w4_4t">No subscription to play</div><div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="w4_4d">Walk, control, animate out of the box. AI voice features are optional extras, not paywalls.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SOCIAL PROOF -->
+<section style="background:var(--bk);" id="reviews">
+  <div style="max-width:1100px;margin:0 auto;">
+  <div class="se" data-k="rev_ey">EARLY TESTERS</div>
+  <h2 class="sh"><span data-k="rev_h1">Kids love it.</span><br><em data-k="rev_h2">Parents too.</em></h2>
+  <div class="reviews-scroll" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;">
+    <div style="background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:24px;">
+      <div style="display:flex;gap:3px;margin-bottom:14px;">
+        <span style="color:var(--g);font-size:16px;">★★★★★</span>
+      </div>
+      <div style="font-size:14px;color:var(--tm);line-height:1.65;margin-bottom:16px;font-style:italic;"><span data-k="rev1_text">"My 11-year-old spent the whole weekend with it. First assembling, then making it dance, then trying to write his own moves. I had to tell him to go to bed."</span></div>
+      <div style="font-family:var(--M);font-size:11px;color:var(--td);"><span data-k="rev1_author">Martin K., father of 11-yo · Prague, CZ</span> &nbsp;<span style="font-size:9px;background:rgba(57,255,20,.12);border:1px solid rgba(57,255,20,.25);border-radius:6px;padding:2px 5px;color:var(--g);letter-spacing:.06em;">Beta Batch #1</span></div>
+    </div>
+    <div style="background:var(--s1);border:1px solid rgba(57,255,20,.25);border-radius:14px;padding:24px;">
+      <div style="display:flex;gap:3px;margin-bottom:14px;">
+        <span style="color:var(--g);font-size:16px;">★★★★★</span>
+      </div>
+      <div style="font-size:14px;color:var(--tm);line-height:1.65;margin-bottom:16px;font-style:italic;"><span data-k="rev2_text">"Bought it for my daughter's birthday. She had it walking in 90 minutes. Now she's teaching it new tricks every day. Best €199 I've ever spent on a toy."</span></div>
+      <div style="font-family:var(--M);font-size:11px;color:var(--td);"><span data-k="rev2_author">Sarah W., mother of 9-yo · Berlin, DE</span> &nbsp;<span style="font-size:9px;background:rgba(57,255,20,.12);border:1px solid rgba(57,255,20,.25);border-radius:6px;padding:2px 5px;color:var(--g);letter-spacing:.06em;">Verified Parent</span></div>
+    </div>
+    <div style="background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:24px;">
+      <div style="display:flex;gap:3px;margin-bottom:14px;">
+        <span style="color:var(--g);font-size:16px;">★★★★☆</span>
+      </div>
+      <div style="font-size:14px;color:var(--tm);line-height:1.65;margin-bottom:16px;font-style:italic;"><span data-k="rev3_text">"Assembly took us about two hours with my 15-year-old — longer than promised but honestly that was half the fun. The voice commands blew his mind."</span></div>
+      <div style="font-family:var(--M);font-size:11px;color:var(--td);"><span data-k="rev3_author">Tomasz R., dad of 15-yo · Warsaw, PL</span> &nbsp;<span style="font-size:9px;background:rgba(57,255,20,.12);border:1px solid rgba(57,255,20,.25);border-radius:6px;padding:2px 5px;color:var(--g);letter-spacing:.06em;">Beta Batch #1</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;font-family:var(--M);font-size:11px;color:var(--td);"><span data-k="rev_note">Beta testing with 12 families across Czech Republic, Germany and Poland. Full launch 2026.</span></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" style="background:var(--bk);">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="se" data-k="prod_ey">CHOOSE YOUR KIT</div>
+    <h2 class="sh" style="margin-bottom:12px;"><span data-k="prod_h1">Pick your</span><br><em data-k="prod_h2">Pavouk.</em></h2>
+    <p style="font-size:16px;color:var(--tm);max-width:480px;margin-bottom:36px;line-height:1.65;" data-k="prod_lead">One robot. Three ways to own it. The hardware is the same — what changes is the AI and how long it lasts.</p>
+
+    <!-- Color strip -->
+    <div style="border:1px solid var(--br);border-radius:14px;background:linear-gradient(90deg,rgba(255,107,0,.06),rgba(57,255,20,.04));padding:18px 24px;text-align:center;margin-bottom:32px;">
+      <div style="font-family:var(--M);font-size:11px;color:var(--g);letter-spacing:.18em;">AVAILABLE IN 5 COLORS · AMBER · WHITE · BLUE · STEEL · GREEN</div>
+    </div>
+
+    <!-- 3 pricing tiers -->
+    <div class="tier-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(57,255,20,.12);border-radius:16px;overflow:hidden;">
+
+      <!-- TIER 1: Starter -->
+      <div style="background:var(--s1);padding:32px 28px;display:flex;flex-direction:column;">
+        <div style="font-family:var(--M);font-size:9px;color:var(--td);letter-spacing:.18em;margin-bottom:10px;">TIER 01</div>
+        <div style="font-family:var(--D);font-size:26px;letter-spacing:.02em;margin-bottom:4px;">Starter</div>
+        <div style="font-family:var(--M);font-size:10px;color:var(--td);letter-spacing:.12em;margin-bottom:12px;">PERFECT FOR ASSEMBLY</div>
+        <div style="font-family:var(--D);font-size:48px;line-height:1;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;" data-k="p1_price_main">€99</div>
+        <div style="font-family:var(--M);font-size:10px;color:rgba(57,255,20,.45);margin-bottom:20px;" data-k="p1_price_sub">≈ $108 · one-time</div>
+
+        <div style="font-size:12px;color:var(--td);margin-bottom:6px;font-weight:600;letter-spacing:.05em;">INCLUDED</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:auto;padding-bottom:28px;">
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Robot kit — assemble in ~1 hour</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Phone control app</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>50+ emotion animations</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>AI Brain — 3 months free</li>
+          <li style="font-size:13px;color:var(--td);display:flex;gap:8px;"><span style="color:var(--td);flex-shrink:0;">–</span>No extra shell</li>
+          <li style="font-size:13px;color:var(--td);display:flex;gap:8px;"><span style="color:var(--td);flex-shrink:0;">–</span>Standard battery (~45 min)</li>
+        </ul>
+
+        <a href="https://buy.stripe.com/test_bJe7sNgNVgyt52w2vd7Re00" style="display:block;text-align:center;padding:13px;border-radius:9px;border:1px solid rgba(255,255,255,.15);color:var(--tx);font-family:var(--font);font-weight:700;font-size:13px;text-decoration:none;letter-spacing:.02em;transition:border-color .2s;"
+           onmouseover="this.style.borderColor='var(--g)';this.style.color='var(--g)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='var(--tx)'">
+          Order Starter
+        </a>
+        <div style="text-align:center;margin-top:10px;font-family:var(--M);font-size:10px;color:var(--td);">30-day money back</div>
+      </div>
+
+      <!-- TIER 2: Pro — featured -->
+      <div style="background:linear-gradient(160deg,#0e1a0e,#0d0d0d);padding:32px 28px;display:flex;flex-direction:column;border:1px solid rgba(57,255,20,.35);margin:-1px;z-index:1;box-shadow:inset 0 0 40px rgba(57,255,20,.03);">
+        <div style="position:absolute;top:0;right:24px;transform:translateY(-50%);background:var(--g);color:var(--bk);font-family:var(--M);font-size:9px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:20px;">Best for Growth · €240 AI Included</div>
+        <div style="font-family:var(--M);font-size:9px;color:rgba(57,255,20,.5);letter-spacing:.18em;margin-bottom:10px;">TIER 02</div>
+        <div style="font-family:var(--D);font-size:26px;letter-spacing:.02em;margin-bottom:4px;">Pro</div>
+        <div style="font-family:var(--M);font-size:10px;color:rgba(57,255,20,.6);letter-spacing:.12em;margin-bottom:12px;">FULL AI · 1 YEAR INCLUDED</div>
+        <div style="font-family:var(--D);font-size:48px;line-height:1;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;" data-k="p2_price_main">€249</div>
+        <div style="font-family:var(--M);font-size:10px;color:rgba(57,255,20,.45);margin-bottom:20px;" data-k="p2_price_sub">≈ $272 · one-time</div>
+
+        <div style="font-size:12px;color:var(--td);margin-bottom:6px;font-weight:600;letter-spacing:.05em;">EVERYTHING IN STARTER +</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:auto;padding-bottom:28px;">
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>AI Brain — full year included (€240 value)</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Extra shell — choose your color</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>LiPo battery — 90 min playtime</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Voice assistant + memory + autonomy</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Priority shipping</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Early access Discord</li>
+        </ul>
+
+        <a href="https://buy.stripe.com/test_8x25kFdBJgytcuY4Dl7Re02" style="display:block;text-align:center;padding:13px;border-radius:9px;background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);font-family:var(--font);font-weight:700;font-size:13px;text-decoration:none;letter-spacing:.02em;box-shadow:0 0 20px rgba(57,255,20,.3);">
+          Order Pro — €249
+        </a>
+        <div style="text-align:center;margin-top:10px;font-family:var(--M);font-size:10px;color:rgba(57,255,20,.5);">30-day money back</div>
+      </div>
+
+      <!-- TIER 3: Lifetime -->
+      <div style="background:var(--s1);padding:32px 28px;display:flex;flex-direction:column;position:relative;">
+        <div style="font-family:var(--M);font-size:9px;color:var(--td);letter-spacing:.18em;margin-bottom:10px;">TIER 03</div>
+        <div style="font-family:var(--D);font-size:26px;letter-spacing:.02em;margin-bottom:4px;">Lifetime</div>
+        <div style="font-family:var(--M);font-size:10px;color:var(--td);letter-spacing:.12em;margin-bottom:12px;">3 YEARS AI · REPAIR KIT · GUARANTEE</div>
+        <div style="font-family:var(--D);font-size:48px;line-height:1;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;" data-k="p3_price_main">€549</div>
+        <div style="font-family:var(--M);font-size:10px;color:rgba(57,255,20,.45);margin-bottom:20px;" data-k="p3_price_sub">≈ $599 · one-time</div>
+
+        <div style="font-size:12px;color:var(--td);margin-bottom:6px;font-weight:600;letter-spacing:.05em;">EVERYTHING IN PRO +</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:auto;padding-bottom:28px;">
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>AI Brain — 3 years included</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Repair Kit — spare servos &amp; parts</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Replacement guarantee — we fix or replace</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Assembled &amp; tested — walks in 5 min</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>Dedicated support line</li>
+          <li style="font-size:13px;color:var(--tm);display:flex;gap:8px;"><span style="color:var(--g);flex-shrink:0;">+</span>School &amp; classroom license</li>
+        </ul>
+
+        <a href="https://buy.stripe.com/test_dRmaEZ4199613Ys8TB7Re03" style="display:block;text-align:center;padding:13px;border-radius:9px;border:1px solid rgba(255,255,255,.15);color:var(--tx);font-family:var(--font);font-weight:700;font-size:13px;text-decoration:none;letter-spacing:.02em;transition:border-color .2s;"
+           onmouseover="this.style.borderColor='var(--g)';this.style.color='var(--g)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='var(--tx)'">
+          Order Lifetime
+        </a>
+        <div style="text-align:center;margin-top:10px;font-family:var(--M);font-size:10px;color:var(--td);">30-day money back</div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- Guarantee block -->
+    <div style="margin-top:16px;padding:16px 20px;background:rgba(57,255,20,.05);border:1px solid rgba(57,255,20,.12);border-radius:14px;font-size:13px;color:var(--tm);line-height:1.6;">
+      <span style="color:var(--g);margin-right:6px;">🛡</span><span data-k="guarantee">Not happy? Full refund within 30 days. No questions asked. Email us directly: </span><a href="mailto:hello@pavouk.robot" style="color:var(--g);text-decoration:none;font-weight:600;">hello@pavouk.robot</a>
+    </div>
+
+    <!-- AI Brain upsell note -->
+    <div style="margin-top:12px;padding:16px 20px;background:rgba(57,255,20,.05);border:1px solid rgba(57,255,20,.12);border-radius:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:13px;color:var(--tm);">AI Brain subscription after free period: <strong style="color:var(--tx);">€20/month</strong> or <strong style="color:var(--tx);">€199/year</strong></div>
+      <a href="https://buy.stripe.com/test_00w28t9ltfup7aEfhZ7Re01" style="font-family:var(--M);font-size:11px;color:var(--g);text-decoration:none;white-space:nowrap;">Subscribe to AI Brain only →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw" id="how">
+  <div style="max-width:1100px;margin:0 auto;">
+  <div class="se" data-k="how_ey">HOW IT WORKS</div>
+  <h2 class="sh"><span data-k="how_h1">Box to</span><br><em data-k="how_h2">walking.</em></h2>
+  <p class="sl2" data-k="how_lead">No soldering. No prior experience needed. Seriously.</p>
+  <div class="hsteps">
+    <div class="hstep"><div class="hnum">01</div><div class="htitle" data-k="s1t">Open and click</div><div class="hdesc" data-k="s1d">Follow the picture guide — every step has pictures, no text instructions. Pieces click together like building blocks. Most families do it together in about an hour. No tools, no frustration.</div></div>
+    <div class="hstep"><div class="hnum">02</div><div class="htitle" data-k="s2t">Connect to WiFi</div><div class="hdesc" data-k="s2d">Power on, open the setup page on your phone, type your WiFi password. The app finds Pavouk automatically.</div></div>
+    <div class="hstep"><div class="hnum">03</div><div class="htitle" data-k="s3t">Control it</div><div class="hdesc" data-k="s3d">Joystick, voice commands, or type what you want. Pavouk walks, sits, dances, and reacts.</div></div>
+    <div class="hstep"><div class="hnum">04</div><div class="htitle" data-k="s4t">Make it yours</div><div class="hdesc" data-k="s4d">When curiosity kicks in, the whole robot is open. Add sensors, write code, build anything.</div></div>
+  </div>
+  <div style="margin-top:48px;border:1px solid var(--br);background:linear-gradient(135deg,rgba(57,255,20,.05),rgba(0,245,255,.03));border-radius:16px;padding:32px;">
+    <div style="font-family:var(--D);font-size:clamp(22px,2.5vw,36px);line-height:1.05;margin-bottom:8px;"><span data-k="how_cta_h1">Then build a second one.</span><br><span style="color:var(--g);" data-k="how_cta_h2">Challenge your friends.</span></div>
+    <div style="font-family:var(--M);font-size:11px;color:var(--td);" data-k="how_cta_sub">Available in 5 colors. Each with a different personality.</div>
+  </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section style="background:var(--bk);" id="app">
+  <div style="max-width:1100px;margin:0 auto;">
+  <div class="se" data-k="app_ey">PAVOUK APP</div>
+  <h2 class="sh"><span data-k="app_h1">Talk to it.</span><br><em data-k="app_h2">It listens.</em></h2>
+  <div class="app-wrap">
+    <!-- LEFT: AI-gen demo -->
+    <div style="border-radius:16px;overflow:hidden;position:relative;">
+      <img src="images/robot-interact.gif" alt="Pavouk responding to voice command — animation" style="width:100%;display:block;height:100%;min-height:360px;object-fit:cover;object-position:center 40%;border-radius:16px;"><span class="ai-tag" data-k="ai_caption" style="bottom:16px;left:16px;font-size:10px;">Visualisation of Pavouk's movement capabilities</span>
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.85) 0%,transparent 50%);border-radius:16px;"></div>
+      <div style="position:absolute;bottom:24px;left:24px;right:24px;">
+        <div style="font-family:var(--D);font-size:clamp(22px,2.5vw,32px);line-height:1.1;margin-bottom:6px;">Talk to it.<br><span style="background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">It listens and executes.</span></div>
+        <div style="font-family:var(--M);font-size:10px;color:var(--td);">Pavouk starts as a walking toy. Over time — a coding partner, a robotics project, an AI experiment.</div>
+      </div>
+    </div>
+    <!-- RIGHT: feature list -->
+    <div class="af-list">
+      <div class="af"><div class="af-icon"><svg class="af-svg" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div><div><div class="af-t" data-k="af1t">Real-time control</div><div class="af-d" data-k="af1d">Walk, turn, sit, wave — from a virtual joystick on your phone. Instant response over WiFi. No download, works in any browser.</div></div></div>
+      <div class="af"><div class="af-icon"><svg class="af-svg" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><div class="af-t" data-k="af2t">Text to action</div><div class="af-d" data-k="af2d">Type what you want. "Do a happy dance." "Look confused." AI translates your words into movement in real time.</div></div></div>
+      <div class="af"><div class="af-icon"><svg class="af-svg" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><div class="af-t" data-k="af3t">Emotion library</div><div class="af-d" data-k="af3d">Happy, curious, sleepy, excited. Dozens of built-in animations. Trigger from app, voice, or code.</div></div></div>
+      <div class="af"><div class="af-icon"><svg class="af-svg" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="af-t" data-k="af4t">Vibe-code your robot</div><div class="af-d" data-k="af4d">Describe what you want in plain words, AI writes the behavior. Push it to Pavouk over WiFi — no cables, no computer needed.</div></div></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- AI BRAIN -->
+<section style="background:#0d0d0d;" id="ai-brain">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,rgba(57,255,20,.05),rgba(0,245,255,.04));border:1px solid rgba(57,255,20,.2);border-radius:16px;padding:32px;position:relative;overflow:hidden;">
+      <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="background:linear-gradient(135deg,var(--g),var(--c));border-radius:8px;padding:8px 14px;font-family:var(--D);font-size:13px;color:var(--bk);letter-spacing:.08em;white-space:nowrap;flex-shrink:0;">AI BRAIN</div>
+        <div>
+          <div style="font-family:var(--D);font-size:clamp(22px,2.5vw,34px);line-height:1.05;margin-bottom:4px;">Unlock the <span style="background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Full Intelligence.</span></div>
+          <div style="font-family:var(--M);font-size:11px;color:var(--td);">Every kit includes a free trial. And even after? Basic AI stays free forever.</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;">
+        <div style="background:rgba(8,8,8,.6);border:1px solid rgba(57,255,20,.15);border-radius:14px;padding:20px;">
+          <div style="width:32px;height:32px;background:rgba(57,255,20,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg></div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:6px;" data-k="ai1t">Voice assistant</div>
+          <div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="ai1d">Talk to Pavouk naturally. It understands context, answers questions, reacts to your mood, and remembers what you said before.</div>
+        </div>
+        <div style="background:rgba(8,8,8,.6);border:1px solid rgba(57,255,20,.15);border-radius:14px;padding:20px;">
+          <div style="width:32px;height:32px;background:rgba(57,255,20,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:6px;" data-k="ai2t">Autonomous behavior</div>
+          <div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="ai2d">Pavouk acts on its own. Explores the room, reacts to sounds, comes to you when called, expresses boredom when left alone.</div>
+        </div>
+        <div style="background:rgba(8,8,8,.6);border:1px solid rgba(57,255,20,.15);border-radius:14px;padding:20px;">
+          <div style="width:32px;height:32px;background:rgba(57,255,20,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div style="font-size:14px;font-weight:600;margin-bottom:6px;" data-k="ai3t">Memory and personality</div>
+          <div style="font-size:12px;color:var(--td);line-height:1.6;" data-k="ai3d">Pavouk remembers your child by name, learns favorite tricks, develops habits. The longer you use it, the more personal it becomes.</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:20px;border-top:1px solid rgba(57,255,20,.12);">
+        <div>
+          <div style="font-family:var(--D);font-size:22px;margin-bottom:6px;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Free Trial Included</div>
+          <div style="font-family:var(--M);font-size:11px;color:var(--tm);line-height:1.7;">with Pro &amp; Lifetime kits.<br>Experience the full power of AI, then decide.<br><span style="color:var(--td);">After trial: €20/mo or €199/yr · Cancel anytime.</span></div>
+        </div>
+        <a href="https://buy.stripe.com/test_00w28t9ltfup7aEfhZ7Re01" style="background:linear-gradient(120deg,var(--g),var(--c));color:var(--bk);font-family:var(--font);font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;text-decoration:none;box-shadow:0 0 20px rgba(57,255,20,.3);">Explore AI Features</a>
+        <div style="text-align:center;margin-top:10px;font-family:var(--M);font-size:10px;color:var(--td);">Pavouk walks, plays and dances without any subscription. AI Brain is an optional upgrade.
+        <div style="margin-top:16px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;font-size:12px;color:var(--td);line-height:1.7;">
+          <span style="color:var(--tm);font-weight:600;">Free AI included with every kit.</span> While connected to the internet, Pavouk has limited access to our AI — enough to understand basic voice commands and respond to simple questions. When the hourly limit runs out, Pavouk doesn't just stop — it gets sleepy. It slows down, yawns on its OLED face, and curls up. A gentle hint that it's time to recharge — or upgrade.
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" style="background:var(--bk);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="se" data-k="faq_ey">FAQ</div>
+    <h2 class="sh"><span data-k="faq_h1">Questions?</span><br><em data-k="faq_h2">We got you.</em></h2>
+    <div class="fq-list">
+      <div class="fq"><div class="fq-q" data-k="q1q">When does it ship?</div><div class="fq-a" data-k="q1a">First batch ships 2026. Orders are fulfilled in the order received. You get a confirmation email with your queue number right after ordering.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q2q">Do I need tools or soldering?</div><div class="fq-a" data-k="q2a">None at all. Every connection uses simple snap clips. No tools, no soldering. Assembly takes 1 to 2 hours with our illustrated picture guide.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q3q">What is the AI subscription?</div><div class="fq-a" data-k="q3a">The AI Brain subscription unlocks voice assistant, autonomous behavior, and long-term memory. Starter includes 3 months free, Pro includes 1 year, Lifetime includes 3 years. After that it is €20 per month or €199 per year. Pavouk is fully playable without any subscription.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q4q">What app do I need?</div><div class="fq-a" data-k="q4a">Nothing to download. The Pavouk app runs in any modern phone browser. Open it, connect to your robot, and play. Works on iPhone and Android.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q5q">What is your return policy?</div><div class="fq-a" data-k="q5a">30-day money back guarantee, no questions asked. If Pavouk arrives damaged or defective we replace it immediately at no cost.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q6q">What age is it for?</div><div class="fq-a" data-k="q6a">Pavouk is designed for ages 8 and up. The Lifetime kit arrives fully assembled — perfect for younger children aged 6+. The Starter kit is ideal for ages 10+ or as a parent-child project.</div></div>
+      <div class="fq"><div class="fq-q" data-k="q7q">Do you ship across the EU?</div><div class="fq-a" data-k="q7a">Yes, we ship to all EU countries. For countries outside the EU please write to <a href="mailto:hello@pavouk.robot">hello@pavouk.robot</a>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="ctaf" style="text-align:left;padding:80px;background:var(--bk);border-top:1px solid rgba(57,255,20,.15);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(57,255,20,.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:relative;max-width:1100px;margin:0 auto;">
+    <div class="se" data-k="ctaf_ey">THE GIFT THAT ACTUALLY MOVES</div>
+    <h2 class="sh" style="margin-bottom:14px;"><span data-k="ctaf_h1">Best gift of</span><br><em data-k="ctaf_h2">2026.</em></h2>
+    <p style="font-size:16px;color:var(--tm);line-height:1.68;margin-bottom:36px;max-width:520px;" data-k="ctaf_lead">First batch is 100 units. When they are gone, the next batch ships in early 2027. Order today and guarantee delivery before the holidays.</p>
+    <div class="ctaf-cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-bottom:36px;">
+      <div style="background:var(--card-bg);border:1px solid rgba(57,255,20,.2);border-radius:var(--r-card);padding:var(--pad-card-sm);transition:var(--card-tr);">
+        <div style="font-family:var(--D);font-size:24px;background:linear-gradient(120deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;" data-k="ctaf_c1t">Birthday</div>
+        <div style="font-size:12px;color:var(--td);line-height:1.5;" data-k="ctaf_c1d">The gift they will actually use. Not forget after a week.</div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid rgba(57,255,20,.2);border-radius:var(--r-card);padding:var(--pad-card-sm);transition:var(--card-tr);">
+        <div style="font-family:var(--D);font-size:24px;background:linear-gradient(120deg,var(--o),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;" data-k="ctaf_c2t">Christmas</div>
+        <div style="font-size:12px;color:var(--td);line-height:1.5;" data-k="ctaf_c2d">Arrives in a premium window box, robot visible inside. Ready to gift as-is.</div>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid rgba(57,255,20,.2);border-radius:var(--r-card);padding:var(--pad-card-sm);transition:var(--card-tr);">
+        <div style="font-family:var(--D);font-size:24px;background:linear-gradient(120deg,var(--p),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;" data-k="ctaf_c3t">Education</div>
+        <div style="font-size:12px;color:var(--td);line-height:1.5;" data-k="ctaf_c3d">Real-world skills, beyond the classroom.</div>
+      </div>
+    </div>
+    <div class="cta-row" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+      <a href="https://buy.stripe.com/test_bJe7sNgNVgyt52w2vd7Re00" class="cbig" data-k="ctaf_btn">Order Now and Secure Your Spot</a>
+      <a href="mailto:hello@pavouk.robot" class="cgh" data-k="ctaf_ghost">Questions? Email Us</a>
+    </div>
+    <div style="font-family:var(--M);font-size:11px;color:var(--td);" data-k="ctaf_note">30-day money back guarantee · Ships 2026 · EU delivery included</div>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo">PAVOUK</div>
+  <div class="ftxt">Designed and assembled in Czech Republic · EU Quality</div>
+  <div class="flinks">
+    <a href="#">GitHub</a>
+    <a href="#">Discord</a>
+    <a href="mailto:hello@pavouk.robot">hello@pavouk.robot</a>
+  </div>
+</footer>
+
+<div style="background:#050505;border-top:1px solid rgba(255,255,255,.04);padding:18px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+  <div style="font-family:var(--M);font-size:9px;color:rgba(255,255,255,.18);line-height:1.8;max-width:600px;">
+    Pavouk is an independent brand built on the <a href="https://github.com/SesameRobotics/sesame" target="_blank" rel="noopener" style="color:rgba(57,255,20,.35);text-decoration:none;">Sesame Robot</a> open-source platform. Licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener" style="color:rgba(57,255,20,.35);text-decoration:none;">Apache 2.0</a>. Modifications documented on our GitHub.
+  </div>
+  <div style="font-family:var(--M);font-size:9px;color:rgba(255,255,255,.12);">© 2025 Pavouk Robotics s.r.o.</div>
+</div>
+
+<div class="toast" id="toast">Spot reserved. Check your email.</div>
+
+<script>
+const T={
+en:{nav_cta:"Order Now",hero_eyebrow:"CZECH REPUBLIC · FOR KIDS AGED 8+ · SHIPS 2026",h1_1:"THE ROBOT",h1_2:"THAT WALKS.",h1_3:"AND THINKS.",hero_sub:"Pavouk is a friendly, programmable four-legged robot for kids aged 8 and up. Assemble it together, control it from your phone, and let the AI bring it to life.",hero_btn:"Reserve Your Spot — from €99",hero_tagline:"Made by a father for his son. First 100 units. Prague, 2026.",hero_sub_note:"30-day money back · Ships 2026 · First batch: 100 units only",hero_ph:"your@email.com",proof:"Limited spots in first batch. Ships 2026.",s1:"STARTING PRICE",s2:"ASSEMBLY TIME",s3:"DEGREES OF FREEDOM",s4:"MADE IN CZECH REPUBLIC",prod_ey:"CHOOSE YOUR KIT",prod_h1:"Pick your",prod_h2:"Pavouk.",prod_lead:"One robot. Three ways to own it. The hardware is the same — what changes is the AI and how long it lasts.",why_ey:"WHY PAVOUK",why_h1:"A toy they will",why_h2:"never outgrow.",why_lead:"Most gifts are forgotten in two weeks. Pavouk grows with your child from age 8 to 18 and beyond.",w1t:"Play it today",w1d:"Control from your phone. Watch it walk and react. No setup needed. Pure fun out of the box.",w2t:"Talk to it tomorrow",w2d:"Tell Pavouk what to do in plain words. Sit down. Look happy. Dance. The AI understands and it listens.",w3t:"Code it next year",w3d:"Describe what you want, AI writes the code. Push to Pavouk over WiFi. Or go deeper — real Python, real hardware.",w4_1t:"Ships ready to walk",w4_1d:"Order Lifetime and Pavouk walks in 5 minutes from unboxing. Charge, connect, go.",w4_2t:"Made in Czech Republic",w4_2d:"Designed and assembled in Prague. EU quality, local support, fast delivery across Europe.",w4_3t:"Real robotics education",w4_3d:"The skills kids learn with Pavouk are real. Robotics and AI are the jobs of the next decade.",w4_4t:"No subscription to play",w4_4d:"Walk, control, animate out of the box. AI voice features are optional extras, not paywalls.",app_ey:"PAVOUK APP",app_h1:"Talk to it.",app_h2:"It listens.",af1t:"Real-time control",af1d:"Walk, turn, sit, wave — from a virtual joystick on your phone. Instant response over WiFi. No download, works in any browser.",af2t:"Text to action",af2d:"Type what you want. AI translates your words into movement in real time.",af3t:"Emotion library",af3d:"Happy, curious, sleepy, excited. Dozens of built-in animations.",af4t:"Vibe-code your robot",af4d:"Describe what you want in plain words, AI writes the behavior. Push it to Pavouk over WiFi.",ai1t:"Voice assistant",ai1d:"Talk to Pavouk naturally. It understands context, answers questions, reacts to your mood, and remembers what you said before.",ai2t:"Autonomous behavior",ai2d:"Pavouk acts on its own. Explores the room, reacts to sounds, comes to you when called, expresses boredom when left alone.",ai3t:"Memory and personality",ai3d:"Pavouk remembers your child by name, learns favorite tricks, develops habits. The longer you use it, the more personal it becomes.",faq_ey:"FAQ",faq_h1:"Questions?",faq_h2:"We got you.",q1q:"When does it ship?",q1a:"First batch ships 2026. Orders are fulfilled in the order received. You get a confirmation with your queue number.",q2q:"Do I need tools or soldering?",q2a:"None at all. Every connection uses simple snap clips. Assembly takes 1 to 2 hours with our illustrated guide.",q3q:"What is the AI subscription?",q3a:"The AI Brain subscription unlocks voice assistant, autonomous behavior, and long-term memory. Starter includes 3 months free, Pro includes 1 year, Lifetime includes 3 years. After that €20 per month or €199 per year.",q4q:"What app do I need?",q4a:"Nothing to download. The Pavouk app runs in any modern phone browser. Works on iPhone and Android.",q5q:"What is your return policy?",q5a:"30-day money back guarantee, no questions asked. If Pavouk arrives damaged we replace it immediately.",q6q:"What age is it for?",q6a:"Designed for ages 8 and up. The Lifetime kit arrives fully assembled — perfect for ages 6+. Starter kit ideal for ages 10+ or parent-child project.",q7q:"Do you ship across the EU?",q7a:"Yes, we ship to all EU countries. For countries outside the EU write to hello@pavouk.robot.",rev_ey:"EARLY TESTERS",
+  rev_h1:"Kids love it.",
+  rev_h2:"Parents too.",
+  rev1_text:"\"My 11-year-old spent the whole weekend with it. First assembling, then making it dance, then trying to write his own moves. I had to tell him to go to bed.\"",
+  rev1_author:"Martin K., father of 11-yo · Prague, CZ",
+  rev2_text:"\"Bought it for my daughter's birthday. She had it walking in 90 minutes. Now she's teaching it new tricks every day. Best €199 I've ever spent on a toy.\"",
+  rev2_author:"Sarah W., mother of 9-yo · Berlin, DE",
+  rev3_text:"\"Assembly took us about two hours with my 15-year-old — longer than promised but honestly that was half the fun. The voice commands blew his mind.\"",
+  rev3_author:"Tomasz R., dad of 15-yo · Warsaw, PL",
+  rev_note:"Beta testing with 12 families across Czech Republic, Germany and Poland. Full launch 2026.",
+  ctaf_ey:"THE GIFT THAT ACTUALLY MOVES",ctaf_h1:"Best gift of",ctaf_h2:"2026.",ctaf_lead:"First batch is 100 units. When they are gone, the next batch ships in early 2027. Order today and guarantee delivery before the holidays.",ctaf_c1t:"Birthday",ctaf_c1d:"The gift they will actually use. Not forget after a week.",ctaf_c2t:"Christmas",ctaf_c2d:"Arrives in a premium window box, robot visible inside. Ready to gift as-is.",ctaf_c3t:"Education",ctaf_c3d:"Real-world skills, beyond the classroom.",ctaf_btn:"Order Now and Secure Your Spot",ctaf_ghost:"Questions? Email Us",ctaf_note:"30-day money back guarantee · Ships 2026 · EU delivery included",how_ey:"HOW IT WORKS",how_h1:"Box to",how_h2:"walking.",how_lead:"No soldering. No prior experience needed. Seriously.",s1t:"Open and click",s1d:"Follow the picture guide — every step has pictures, no text instructions. Pieces click together like building blocks. Most families do it together in about an hour. No tools, no frustration.",s2t:"Connect to WiFi",s2d:"Power on, open the setup page on your phone, type your WiFi password. The app finds Pavouk automatically.",s3t:"Control it",s3d:"Joystick, voice commands, or type what you want. Pavouk walks, sits, dances, and reacts.",s4t:"Make it yours",s4d:"When curiosity kicks in, the whole robot is open. Add sensors, write code, build anything.",s1v:"€99",s2v:"~1H",s3v:"8",s4v:"EU",hero_age:"Ages 8 and up · Ships 2026",hero_guarantee:"30-DAY MONEY BACK",why_split_h1:"One robot.",why_split_h2:"Endless possibilities.",why_split_body:"Pavouk starts as a walking toy your child controls from a phone. Over time it becomes a coding partner, a robotics project, an AI experiment. The same hardware, growing depth.",how_cta_h1:"Then build a second one.",how_cta_h2:"Challenge your friends.",how_cta_sub:"Available in 5 colors. Each with a different personality.",guarantee:"Not happy? Full refund within 30 days. No questions asked. Email us directly: ",ai_caption:"Visualisation of Pavouk's movement capabilities",toast:"Spot reserved. Check your email."},
+cs:{nav_cta:"Objednat",hero_eyebrow:"ČESKÁ REPUBLIKA · PRO DĚTI OD 8 LET · EXPEDICE 2026",h1_1:"ROBOT",h1_2:"KTERÝ CHODÍ.",h1_3:"A MYSLÍ.",hero_sub:"Pavouk je přátelský, programovatelný čtyřnohý robot pro děti od 8 let. Sestavte ho spolu, ovládejte z telefonu a nechte AI, aby ho oživila.",hero_btn:"Rezervuj si místo — od €99",hero_tagline:"Vyrobeno otcem pro jeho syna. Prvních 100 kusů. Praha, 2026.",hero_sub_note:"30 dní na vrácení · Expedice 2026 · První série: pouze 100 kusů",hero_ph:"vas@email.cz",proof:"Omezený počet míst v první sérii. Expedice 2026.",s1:"VÝCHOZÍ CENA",s2:"ČAS SESTAVENÍ",s3:"STUPNĚ VOLNOSTI",s4:"VYROBENO V ČR",s1v:"1 999 Kč",s2v:"~1H",s3v:"8",s4v:"EU",prod_ey:"VYBER SVOU SADU",prod_h1:"Vyber si",prod_h2:"Pavouka.",prod_lead:"Jeden robot. Tři způsoby jak ho vlastnit. Hardware je stejný — mění se AI a jak dlouho vydrží.",why_ey:"PROČ PAVOUK",why_h1:"Hračka, ze které",why_h2:"nevyrostou.",why_lead:"Většina dárků sbírá prach po dvou týdnech. Pavouk roste s tvým dítětem od 8 let až do dospívání.",w1t:"Hraj ho dnes",w1d:"Ovládej z telefonu. Sleduj jak chodí a reaguje. Žádné nastavení. Zábava od první minuty.",w2t:"Mluv s ním zítra",w2d:"Řekni Pavoukovi normálními slovy co má dělat. Sedni. Vypadej šťastně. Tancuj. AI rozumí a robot poslouchá.",w3t:"Programuj ho příští rok",w3d:"Popiš co chceš, AI napíše kód. Pošli do Pavouka přes WiFi. Nebo jdi hlouběji — skutečný Python, skutečný hardware.",w4_1t:"Dorazí připraven k chůzi",w4_1d:"Objednej Lifetime a Pavouk chodí do 5 minut od vybalení. Nabij, připoj, jdi.",w4_2t:"Vyrobeno v České republice",w4_2d:"Navrženo a sestaveno v Praze. Kvalita EU, lokální podpora, rychlé doručení po Evropě.",w4_3t:"Skutečné vzdělávání v robotice",w4_3d:"Dovednosti které děti získají s Pavoukem jsou skutečné. Robotika a AI jsou práce příštího desetiletí.",w4_4t:"Bez předplatného pro hraní",w4_4d:"Chodit, ovládat, animovat rovnou z krabice. AI funkce jsou volitelné, ne nutnost.",app_ey:"APLIKACE PAVOUK",app_h1:"Mluv na něj.",app_h2:"Poslouchá.",af1t:"Ovládání v reálném čase",af1d:"Chodit, otáčet, sedat, mávat — virtuálním joystickem. Okamžitá odezva přes WiFi. Bez stahování, funguje v prohlížeči.",af2t:"Text na akci",af2d:"Napiš co chceš. AI přemění tvá slova na pohyb v reálném čase.",af3t:"Knihovna emocí",af3d:"Šťastný, zvědavý, ospalý, nadšený. Desítky vestavěných animací.",af4t:"Vibe-kóduj svého robota",af4d:"Popiš co chceš aby Pavouk dělal, AI napíše chování za tebe. Pošli přes WiFi.",ai1t:"Hlasový asistent",ai1d:"Mluv s Pavoukem přirozeně. Rozumí kontextu, odpovídá na otázky, reaguje na náladu a pamatuje si.",ai2t:"Autonomní chování",ai2d:"Pavouk jedná sám od sebe. Prozkoumává místnost, reaguje na zvuky, přijde k tobě když ho zavoláš.",ai3t:"Paměť a osobnost",ai3d:"Pavouk si pamatuje jméno tvého dítěte, učí se oblíbené triky, vytváří zvyky v průběhu času.",faq_ey:"FAQ",faq_h1:"Otázky?",faq_h2:"Máme odpovědi.",q1q:"Kdy se expeduje?",q1a:"První série se expeduje 2026. Objednávky vyřizujeme v pořadí. Po objednávce dostaneš potvrzení s číslem místa ve frontě.",q2q:"Potřebuji nářadí nebo pájení?",q2a:"Vůbec ne. Každé spojení používá zaklikávací konektory. Sestavení trvá 1 až 2 hodiny podle obrázkového návodu.",q3q:"Co je AI předplatné?",q3a:"AI Brain odemkne hlasového asistenta, autonomní chování a dlouhodobou paměť. Starter má 3 měsíce zdarma, Pro 1 rok, Lifetime 3 roky. Potom 20 dolarů za měsíc nebo 199 dolarů za rok.",q4q:"Jakou aplikaci potřebuji?",q4a:"Nic ke stažení. Aplikace Pavouk běží v libovolném prohlížeči v telefonu. Funguje na iPhone i Android.",q5q:"Jaká je politika vrácení?",q5a:"30denní záruka vrácení peněz bez otázek. Pokud Pavouk dorazí poškozený, okamžitě ho vyměníme.",q6q:"Pro jaký věk je určen?",q6a:"Pro děti od 8 let. Lifetime kit dorazí sestavený — ideální pro děti od 6 let. Starter kit je pro 10+ nebo projekt rodiče s dítětem.",q7q:"Doručujete po celé EU?",q7a:"Ano, doručujeme do všech zemí EU. Pro země mimo EU napiš na hello@pavouk.robot.",ctaf_ey:"DÁREK KTERÝ SE OPRAVDU HÝBE",ctaf_h1:"Nejlepší dárek",ctaf_h2:"roku 2026.",ctaf_lead:"První série má 100 kusů. Až jsou pryč, další série se expeduje v roce 2026. Objednej dnes a garantuj si doručení před svátky.",ctaf_c1t:"Narozeniny",ctaf_c1d:"Dárek, který opravdu každý den použijí. Ne ten, co zapomenou po týdnu.",ctaf_c2t:"Vánoce",ctaf_c2d:"Dorazí v prémiové krabici s průhledným okénkem, robot viditelný uvnitř. Připraveno k darování.",ctaf_c3t:"Vzdělávání",ctaf_c3d:"Skutečné dovednosti z praxe, za hranicí třídy.",ctaf_btn:"Objednat a zajistit si místo",ctaf_ghost:"Otázky? Napište nám",ctaf_note:"30denní záruka vrácení · Expedice 2026 · Doručení po EU v ceně",toast:"Místo rezervováno. Zkontroluj email.",
+  rev_ey:"PRVNÍ TESTEŘI",
+  rev_h1:"Děti to milují.",
+  rev_h2:"Rodiče také.",
+  rev1_text:"\"Můj 11letý strávil celý víkend nad tím. Nejdřív sestavování, pak tanec, pak psal vlastní pohyby. Musel jsem mu říct, aby šel spát.\"",
+  rev1_author:"Martin K., táta 11letého · Praha, CZ",
+  rev2_text:"\"Koupila jsem ho dceři k narozeninám. Za 90 minut chodil. Teď ho každý den učí nové triky. Nejlepších €199, které jsem kdy utratila za hračku.\"",
+  rev2_author:"Sarah W., maminka 9leté · Berlín, DE",
+  rev3_text:"\"Sestavování nám trvalo dvě hodiny s mým 15letým — déle než slibováno, ale upřímně to byla polovina zábavy. Hlasové příkazy ho úplně dostaly.\"",
+  rev3_author:"Tomáš R., táta 15letého · Varšava, PL",
+  rev_note:"Beta testování s 12 rodinami po celé ČR, Německu a Polsku. Spuštění 2026.",
+  how_ey:"JAK TO FUNGUJE",
+  how_h1:"Z krabice",
+  how_h2:"k chození.",
+  how_lead:"Žádné pájení. Žádné předchozí zkušenosti. Vážně.",
+  s1t:"Otevři a klikni",
+  s1d:"Postupuj podle obrázkového návodu — každý krok má obrázky, žádný text. Díly do sebe zapadají jako stavebnice. Většina rodin to společně zvládne asi za hodinu. Bez nářadí, bez frustrace.",
+  s2t:"Připoj k WiFi",
+  s2d:"Zapni, otevři nastavovací stránku v telefonu a zadej heslo k WiFi. Aplikace Pavouka automaticky najde.",
+  s3t:"Ovládej ho",
+  s3d:"Joystick, hlasové příkazy nebo napiš co chceš. Pavouk chodí, sedá, tancuje a reaguje.",
+  s4t:"Uprav si ho",
+  s4d:"Když přijde zvědavost, celý robot je otevřený. Přidej senzory, piš kód, postav cokoliv.",
+  hero_age:"Pro děti od 8 let · Expedice 2026",
+  hero_guarantee:"30 DNÍ NA VRÁCENÍ",
+  why_split_h1:"Jeden robot.",
+  why_split_h2:"Nekonečné možnosti.",
+  why_split_body:"Pavouk začíná jako chodící hračka, kterou dítě ovládá z telefonu. Postupně se z něj stává parťák do programování, robotický projekt, experiment s AI. Stejný hardware, rostoucí hloubka.",
+  how_cta_h1:"Pak postav druhého.",
+  how_cta_h2:"Vyzvi své kamarády.",
+  how_cta_sub:"Dostupný v 5 barvách. Každá s odlišnou osobností.",
+  guarantee:"Nespokojen? Plné vrácení do 30 dní. Bez otázek. Napiš nám přímo: ",
+  ai_caption:"Vizualizace pohybových schopností Pavouka"}
+};
+
+let L="en";
+function setL(l,btn){
+  L=l;
+  document.querySelectorAll(".lb").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  apply(l);
+}
+function apply(l){
+  const t=T[l];if(!t)return;
+  document.querySelectorAll("[data-k]").forEach(el=>{
+    const k=el.getAttribute("data-k");
+    if(t[k]!==undefined)el.textContent=t[k];
+  });
+  const em=document.getElementById("em");
+  if(em&&t.hero_ph)em.placeholder=t.hero_ph;
+  const prices={
+    en:{p1_price_main:"€99",p1_price_sub:"≈ $108 · one-time",p2_price_main:"€249",p2_price_sub:"≈ $272 · one-time",p3_price_main:"€549",p3_price_sub:"≈ $599 · one-time"},
+    cs:{p1_price_main:"1 999 Kč",p1_price_sub:"jednorazově",p2_price_main:"6 225 Kč",p2_price_sub:"jednorazově",p3_price_main:"13 725 Kč",p3_price_sub:"jednorazově"}
+  };
+  const pc=prices[l]||prices.en;
+  document.querySelectorAll("[data-k^='p'][data-k$='_price_main'],[data-k^='p'][data-k$='_price_sub']").forEach(el=>{
+    const k=el.getAttribute("data-k");if(pc[k]!==undefined)el.textContent=pc[k];
+  });
+  const hp=document.getElementById("hero-price-val");
+  if(hp)hp.textContent=l==="cs"?"Od 1 999 Kč":"From €99";
+}
+function signup(){
+  const el=document.getElementById("em");
+  const v=el.value.trim();
+  if(!v||!v.includes("@")){el.focus();el.style.borderColor="#f44";setTimeout(()=>el.style.borderColor="",1500);return;}
+  const t=document.getElementById("toast");
+  t.textContent=(T[L]&&T[L].toast)||"Spot reserved. Check your email.";
+  t.classList.add("on");el.value="";
+  setTimeout(()=>t.classList.remove("on"),3500);
+}
+function focusE(){
+  const el=document.getElementById("em");
+  if(el){el.scrollIntoView({behavior:"smooth",block:"center"});setTimeout(()=>el.focus(),500);}
+}
+// Countdown
+(function(){
+  let saved;
+  try{saved=localStorage.getItem("pv_deadline");}catch(e){}
+  if(!saved){const d=new Date();d.setHours(d.getHours()+6,d.getMinutes()+23,d.getSeconds()+41);saved=d.getTime();try{localStorage.setItem("pv_deadline",saved);}catch(e){}}
+  function tick(){
+    const diff=Math.max(0,parseInt(saved)-Date.now());
+    const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    const el=document.getElementById("countdown");
+    if(el)el.textContent=String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(diff>0)setTimeout(tick,1000);
+  }
+  tick();
+})();
+document.addEventListener("DOMContentLoaded",()=>{
+  // Nav solid bg on scroll
+  const nav = document.querySelector("nav");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 60) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  }, { passive: true });
+
+  const em=document.getElementById("em");
+  if(em)em.addEventListener("keydown",e=>{if(e.key==="Enter")signup();});
+});
+</script>
+</body>
+</html>
